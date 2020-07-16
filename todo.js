@@ -53,7 +53,7 @@ function addItem(e){
         <div class="todo-item-icon">
             <img class="icon-check" src="todomvc/iconCheckNormal.png" alt="">
         </div>
-        <div class="todo-item-content">${newTask}</div>
+        <div class="todo-item-content"><input type="text" value="${newTask}" class="list-input" /></div>
         <div class="todo-item-X">
             <img class="icon-X" src="todomvc/iconX.png" alt="">
         </div>`
@@ -88,13 +88,13 @@ function checkedTasks(e){
     if (e.target.classList.value=='icon-check'){
         e.target.className='icon-done'
         e.target.src="todomvc/iconChecked.png"
-        e.target.parentElement.parentElement.style.textDecoration='line-through';
-        e.target.parentElement.parentElement.style.color=' #d9d9d9'
-    }else{
+        e.target.parentElement.nextElementSibling.firstChild.style.textDecoration='line-through'
+        e.target.parentElement.nextElementSibling.firstChild.style.color=' #d9d9d9'
+    }else if (e.target.classList.value=='icon-done'){
         e.target.src="todomvc/iconCheckNormal.png"
         e.target.className='icon-check'
-        e.target.parentElement.parentElement.style.textDecoration='none'
-        e.target.parentElement.parentElement.style.color=' #4d4d4d'
+        e.target.parentElement.nextElementSibling.firstChild.style.textDecoration='none'
+        e.target.parentElement.nextElementSibling.firstChild.style.color=' #4d4d4d'
     }
     doneItemNum()
     showClearbutton()
@@ -106,16 +106,16 @@ function allDone(){
         document.querySelectorAll('.icon-done').forEach(function(taskLi){
             taskLi.className='icon-check'
         taskLi.src="todomvc/iconCheckNormal.png"
-        taskLi.parentElement.parentElement.style.textDecoration='none'
-        taskLi.parentElement.parentElement.style.color=' #4d4d4d'
+        taskLi.parentElement.nextElementSibling.firstChild.style.textDecoration='none'
+        taskLi.parentElement.nextElementSibling.firstChild.style.color=' #4d4d4d'
     })
     }else{
         document.querySelectorAll('.icon-check').forEach(function(taskLi){
         taskLi.className='icon-done'
         allDoneButton.src="todomvc/iconSelectAll1.png"
         taskLi.src="todomvc/iconChecked.png"
-        taskLi.parentElement.parentElement.style.textDecoration='line-through' 
-        taskLi.parentElement.parentElement.style.color=' #d9d9d9'
+        taskLi.parentElement.nextElementSibling.firstChild.style.textDecoration='line-through'
+        taskLi.parentElement.nextElementSibling.firstChild.style.color=' #d9d9d9'
     })
     }
     doneItemNum()
