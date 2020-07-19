@@ -1,3 +1,6 @@
+.a{
+    margin-top: 150px;
+}
 input::-moz-placeholder{
     color: #c2c2c2;
     font-style: italic;
